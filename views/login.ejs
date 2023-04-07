@@ -1,5 +1,5 @@
 <%- include('./partials/head') %>
-<%- include('./partials/headerDeslogueado') %>
+<%- include('./partials/header') %>
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -8,7 +8,32 @@
 				<h2 class="products-title">Ingresar</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de login. <br>
+			<h2 class="col-12"> 
+				
+			<section >
+
+					<form action=”/login method=”POST”>
+
+				<div>
+					<label> Usuario:</label>
+					<input type="text" name="user" value="">
+				</div>
+				
+					
+				<div>
+					<label> Contraseña:</label>
+					 <input type="password" name="pass" value=""  >
+				</div>
+
+				<div>
+					<label> Recordarme:</label> 
+					<input type="checkbox" name="check" value="">
+				</div>
+
+
+				</section>
+				
+				<i>///////////////////////////////////////// <br> Acá va el formulario de login. <br>
 			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
 			Eliminen estás líneas y coloquen el formulario. <br>
 			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
