@@ -1,19 +1,19 @@
 const usersController = {
 
     login:function(req, res) {
-        res.send('aqui info de login')
+        res.render('login')
     },
 
     register:function(req, res) {
-        res.send('aqui info de register')
+        res.render('register')
     },
 
     profile:function(req, res) {
-        res.send('aqui info de profile')
+        res.render('profile')
     },
 
     edit: function(req, res) {
-        res.send('aqui info de profile-edit')
+        res.render('profile-edit')
     },
         
 }
