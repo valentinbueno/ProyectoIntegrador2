@@ -1,20 +1,29 @@
 const usersController = {
 
     login:function(req, res) {
-        res.render('login')
-    },
+        res.render('login',{
+            userLogueado:false,
+        
+        })},
 
     register:function(req, res) {
-        res.render('register')
-    },
+        res.render('register',{
+            userLogueado:false,
+
+        })},
+
 
     profile:function(req, res) {
-        res.render('profile')
-    },
+        res.render('profile',{
+            userLogueado:true,
+
+        })},
 
     edit: function(req, res) {
-        res.render('profile-edit')
-    },
+        res.render('profile-edit',{
+            userLogueado:true,
+
+        })},
         
 }
 

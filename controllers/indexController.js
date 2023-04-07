@@ -3,7 +3,7 @@ const controllerIndex = {
     index: function(req, res) {
         res.render('index', {
           products:data.products,
-          user:false,
+          userLogueado:false,
         })
       }
 }
