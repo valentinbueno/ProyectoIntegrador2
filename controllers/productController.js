@@ -1,7 +1,7 @@
 const controllerProduct = {
     index: function(req, res) {
-        res.send('Aqui mandamos todos los productos');
-      }
-}
+      res.send('product')
+
+}}
 
 module.exports = controllerProduct;

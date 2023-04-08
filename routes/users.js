@@ -4,7 +4,7 @@ var router = express.Router();
 const usersController= require('../controllers/usersController')
 
 // sufijo para login
-router.get('/login', usersController.login)
+router.get('/login', usersController.login);
 
 // sufijo para register
 router.get('/register',usersController.register);
