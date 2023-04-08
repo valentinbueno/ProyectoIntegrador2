@@ -1,7 +1,13 @@
 const controllerProduct = {
-    index: function(req, res) {
-      res.send('product')
+  
+detalle:function(req, res) {
+  res.render('product',{
+      userLogueado:false,
 
-}}
+  })},
+
+}
 
 module.exports = controllerProduct;
+
+
