@@ -4,13 +4,9 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
-  --dark-blue: #03264C;
-  --light-blue: #1259c3;
-  --gray: #666666;
-  --light-gray: #ebebeb;
-  --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --black: black;
+  --white: white;
+  --purple: #8c20ba;
 }
 
 
@@ -27,9 +23,8 @@ body {
 }
 
 body {
-  font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-color: black;
 }
 
 ul,
@@ -43,6 +38,30 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+li{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+}
+
+h1{
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+label{
+  color: white;
+}
+
+input{
+  color: white;
 }
 
 figure {
@@ -68,18 +87,24 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: #8c20ba
 }
 
-.main-header_home-link,
-.main-header_credit-link {
+.main-header_home-link{
   display: block;
+}
+
+.logoHeader{
+  height: 60px;
+  width: 130px;
 }
 
 .main-header_credit-link {
   font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
+  display: block;
+  color: white;
 }
 
 .search-form {
@@ -130,6 +155,7 @@ hr {
 .left-navbar,
 .right-navbar {
   font-size: 1.5em;
+  color: white;
 }
 
 .logout{
@@ -137,10 +163,12 @@ hr {
   border: 0px;
   cursor: pointer;
   font-size: 1em;
+  color: white;
 }
 
-.logout:hover{
-  color: #1259c3;
+.logout:hover,
+.nombreUsuario:hover{
+  color: black;
 }
 
 .left-navbar a,
@@ -154,7 +182,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -171,7 +199,7 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: white;
 }
 
 .product-box {
@@ -272,9 +300,10 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: #8c20ba;
   padding: 20px 0;
   margin-top: 80px;
+  border-radius: 10px;
 }
 
 .footer-data {
@@ -282,18 +311,18 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: white;
   font-size: 3.5em;
 }
 
 .footer-data h2 {
-  color: var(--gray);
+  color: white;
   font-size: 2.4em;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: var(--gray);
+  color: white;
   font-size: 1.5em;
   font-weight: 300;
 }
@@ -521,7 +550,7 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--light-blue);
+    color: black;
   }
 
   .left-navbar li {
