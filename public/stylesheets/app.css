@@ -188,6 +188,19 @@ hr {
 
 .product-box_image {
   border-bottom: 1px solid var(--light-gray);
+  width: 330px;
+  height: 330px;
+  object-fit: cover;
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.img-ind{
+  height: auto;
+  width: auto;
+  max-width: 260px;
+  max-height: 330px;
 }
 
 .product-box_data {
