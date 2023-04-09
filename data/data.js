@@ -9,12 +9,24 @@ const data = {
                 {
                     usuario:'Jose',
                     comentario: 'Muy útil, la uso para trabajar y nunca me falló'
-                },
+                },{
+                    usuario:'Lopez',
+                    comentario: 'Gran computadora!!'
+                },{
+                    usuario:'Martina',
+                    comentario:'A veces se traba, prefiero Microsoft'
+                },{
+                    usuario:'Julieta',
+                    comentario:'Soy diseñadora y es muy util para mis tareas'
+                },{
+                    usuario:'Tomas',
+                    comentario:'Divertida para jugar juegos'
+                }
             ],
         },
 
         {
-            imagen: '/images/products/ipad-pro-129-wi-fi-128gb-5ta-gen-silver',
+            imagen: '/images/products/ipad2.jpg',
             nombre: 'IPAD PRO',
             descripcion:'Es un dispositivo de pantalla táctil que se encuentra categorizado como un intermedio entre los teléfonos inteligentes y los computadores portátiles. Puedes utilizarlo para leer, estudiar, ver películas o videos, escuchar música, escribir, comunicarte y más.',
             fechaDeCarga:'05/07/2022',
@@ -92,7 +104,7 @@ const data = {
         },
 
         {
-            imagen:'/images/products/jbl.jpg',
+            imagen:'/images/products/jbl.jpeg',
             nombre: 'JBL Flip 4',
             descripcion:'Es la siguiente generación de la premiada serie Flip; es un altavoz portátil que ofrece un sonido estéreo increíblemente potente. Este altavoz compacto funciona con una batería recargable de iones de litio de 3000 mAh, para que disfrutes de hasta 12 horas de reproducción continua de gran calidad.',
             fechaDeCarga:'05/07/2022',
@@ -131,7 +143,7 @@ const data = {
         },
 
         {
-            imagen:'/images/products/meta.jpg',
+            imagen:'/images/products/meta.png',
             nombre: 'Meta VR ',
             descripcion:'Meta Quest Pro es un dispositivo multifuncional de realidad virtual y mixta, diseñado para ayudar a las personas a hacer mejor su trabajo y a establecer conexiones significativas con otras personas que les importan, proporcionando, al mismo tiempo, una visión de lo que los futuros dispositivos de realidad aumentada',
             fechaDeCarga:'05/07/2022',
@@ -144,7 +156,7 @@ const data = {
         },
 
         {
-            imagen:'/images/products/samsung.jpg',
+            imagen:'/images/products/samsung.webp',
             nombre: 'Samsung Galaxy S23 ',
             descripcion:'El Samsung Galaxy S23 sigue la estela del gama alta compacto del año pasado pero incorporando en su interior el Snapdragon 8 Gen 2, con un nuevo diseño, más batería, algunos cambios en sus cámaras y otras novedades.',
             fechaDeCarga:'05/07/2022',
@@ -162,6 +174,7 @@ const data = {
         ],
 
     user: { 
+        fotoDePerfil: '/images/users/julio.jpg',
         email: 'julio@gmail.com',
         usuario: "Julio Cesar",
         contraseña:'11223344*',

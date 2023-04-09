@@ -1,3 +1,4 @@
+const data = require ('../data/data')
 const usersController = {
 
     login:function(req, res) {
@@ -16,6 +17,7 @@ const usersController = {
     profile:function(req, res) {
         res.render('profile',{
             userLogueado:true,
+            user:data.user,
 
         })},
 
