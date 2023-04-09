@@ -13,7 +13,7 @@ router.get('/register',usersController.register);
 router.get('/profile',usersController.profile );
 
 // sufijo para profile edit
-router.get('/profle-edit', usersController.edit );
+router.get('/edit', usersController.edit );
 
 
 module.exports = router;

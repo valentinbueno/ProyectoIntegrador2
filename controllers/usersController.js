@@ -24,7 +24,7 @@ const usersController = {
     edit: function(req, res) {
         res.render('profile-edit',{
             userLogueado:true,
-
+            user:data.user,
         })},
         
 }

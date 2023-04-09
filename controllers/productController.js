@@ -11,6 +11,7 @@ detalle:function(req, res) {
 add:function(req, res){
   res.render('product-add',{
     userLogueado:true,
+    user:data.user,
   })
 }
 
