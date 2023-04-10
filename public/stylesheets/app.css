@@ -91,7 +91,6 @@ input{
   color: black;
 }
 
-
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
@@ -521,7 +520,7 @@ textarea.form-input {
 }
 
 .btn{
-  background-color: #1259c3;
+  background-color: #8c20ba;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
