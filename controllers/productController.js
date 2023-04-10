@@ -5,6 +5,7 @@ detalle:function(req, res) {
   res.render('product',{
       products:data.products,
       userLogueado:false,
+      comments:data.comments
 
   })},
 
