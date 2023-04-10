@@ -15,3 +15,4 @@ insert into usuarios values(default, 'isco@gmail.com', 'Madridismo','/images/use
 insert into usuarios values(default, 'maradona@gmail.com', 'golconlamano', '/images/users/julio.jpg','1994-07-23',35753890, default, default);
 insert into usuarios values(default, 'enzoperez@gmail.com', '9-12-2018', '/images/users/julio.jpg','1992-09-16',32783891, default, default);
 insert into usuarios values(default, 'messi@gmail.com', 'pulga', '/images/users/julio.jpg','2000-06-24',39153850, default, default);
+11:39:00	create table productos( id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT , nombre VARCHAR(100) NOT NULL, descripcion VARCHAR(500), id_creador INT, FOREIGN KEY (id_creador) REFERENCES usuarios(id), createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP , updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  )	Error Code: 1005. Can't create table `proyecto_integrador`.`productos` (errno: 150 "Foreign key constraint is incorrectly formed")	0.047 sec
