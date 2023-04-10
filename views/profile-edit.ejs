@@ -9,12 +9,11 @@
 			</div>
 			<section >
 
-				<form action=”/register” method=”GET”>
+				<form action="/users/profile" method="GET">
 
 					<div>
 						<label> Foto de perfil:</label>
 						<input type="file" id="imagen" name="imagen">
-						<input type="submit" value="Enviar">
 					</div>
 	
 					<div>
@@ -23,7 +22,11 @@
 					</div>
 	
 					<div>
-						<label> Contraseña:</label> <input type="password" name="pass" value=""  >
+						<label> Contraseña:</label> 
+						<input type="password" name="pass" value="">
+					</div>
+					<div>
+						<input class="enviar" type="submit" value="Enviar">
 					</div>
 	
 			</section>

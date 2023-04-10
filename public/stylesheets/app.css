@@ -83,6 +83,14 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
+.enviar{
+  color: black;
+}
+
+input{
+  color: black;
+}
+
 
 /*====== Main Header ======*/
 .main-header {
@@ -412,12 +420,12 @@ hr {
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: #8c20ba;
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
   border-radius: 8px;
-  border: none;
+  border: black;
   margin-bottom: 15px;
 }
 
@@ -481,7 +489,7 @@ hr {
   font-size: 1.5em;
   border-radius: 8px;
   border: none;
-  border: solid 1px var(--gray);
+  border: solid 1px black;
   padding: 0 15px;
 }
 
