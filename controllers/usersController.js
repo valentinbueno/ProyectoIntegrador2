@@ -18,7 +18,7 @@ const usersController = {
         res.render('profile',{
             userLogueado:true,
             user:data.user,
-
+            products:data.products,
         })},
 
     edit: function(req, res) {
