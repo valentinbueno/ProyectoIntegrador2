@@ -1,5 +1,6 @@
 create schema Proyecto_Integrador;
 use Proyecto_Integrador;
+-- Creo Tabla Usuarios
 create table usuarios (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT  , 
 usuario VARCHAR(100) UNIQUE NOT NULL,
@@ -18,6 +19,7 @@ insert into usuarios values(default,'Diego Maradona', 'maradona@gmail.com', 'gol
 insert into usuarios values(default,'Enzo Perez', 'enzoperez@gmail.com', '9-12-2018', '/images/users/julio.jpg','1992-09-16',32783891, default, default);
 insert into usuarios values(default,'Lionel Messi', 'messi@gmail.com', 'pulga', '/images/users/julio.jpg','2000-06-24',39153850, default, default);
 
+-- Creo Tabla productos
 create table productos(
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT ,
 nombre VARCHAR(100) NOT NULL,
@@ -40,6 +42,8 @@ insert into productos values(default,'Beats Headphones', 'Los auriculares circum
 insert into productos values(default,'Xbox', 'La consola está formada por un procesador AMD de 8 núcleos Custom de 64 bits basado en microarquitectura Jaguar y una velocidad estimada en 1,75 Ghz, 8 GB de memoria RAM DDR3 más 32 MB de ESRAM, con una velocidad de hasta 204 GB​ 500 GB de disco duro y un lector Blu-ray 6x.', 1, default, default);
 insert into productos values(default,'Meta VR', 'Meta Quest Pro es un dispositivo multifuncional de realidad virtual y mixta, diseñado para ayudar a las personas a hacer mejor su trabajo y a establecer conexiones significativas con otras personas que les importan, proporcionando, al mismo tiempo, una visión de lo que los futuros dispositivos de realidad aumentada', 3, default, default);
 
+-- Creo Tabla Comentarios
+
 create table comentarios(
 id_producto INT UNSIGNED,
 id_usuario INT UNSIGNED,
@@ -50,8 +54,44 @@ createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
 );
 
--- Inserto los 4 comentarios
-insert into comentarios(id_producto, id_usuario, comentario, createdAt, updatedAt ) values(1, 2,'toda mi vida use las tablets de Samsung, pero despues de probar esta, se que Ipad es mejor', default, default );
+-- Inserto los 40 comentarios
+insert into comentarios(id_producto, id_usuario, comentario, createdAt, updatedAt ) values(1, 1,'toda mi vida use las tablets de Samsung, pero despues de probar esta, se que Ipad es mejor', default, default );
+insert into comentarios values(1,5,'El sonido y la bateria al nivel de los mejores',default,default);
+insert into comentarios values(1,4,'La calidad de la pantalla es impresionante.',default,default);
+insert into comentarios values(1,3,'La duración de la batería es excelente.',default,default);
+insert into comentarios values(2,1,'Es fácil de usar y navegar por el sistema operativo.',default,default);
+insert into comentarios values(2,2,'La velocidad de procesamiento es impresionante.',default,default);
+insert into comentarios values(2,4,'La conectividad Bluetooth funciona perfectamente.',default,default);
+insert into comentarios values(2,5,'El almacenamiento interno es más que suficiente para todas mis necesidades.',default,default);
+insert into comentarios values(3,1,'La integración de aplicaciones es fluida y sin problemas.',default,default);
+insert into comentarios values(3,3,'Es liviano y fácil de transportar.',default,default);
+insert into comentarios values(3,4,'La calidad de construcción es de alta calidad.',default,default);
 insert into comentarios values(3,2,'Me gusta mas la xbox, sinceramente',default,default);
+insert into comentarios values(4,1,'La interfaz de usuario es intuitiva y fácil de usar.',default,default);
+insert into comentarios values(4,2,'La resolución de la pantalla es increíblemente nítida.',default,default);
+insert into comentarios values(4,3,'La pantalla es resistente a rayones y golpes.',default,default);
+insert into comentarios values(4,4,'La compatibilidad con otros dispositivos es excelente.',default,default);
+insert into comentarios values(5,1,'La cámara toma fotografías y videos increíbles.',default,default);
+insert into comentarios values(5,2,'La calidad del sonido es excelente.',default,default);
 insert into comentarios values(5,3,'Muy buena camara',default,default);
-insert into comentarios values(8,5,'El sonido y la bateria al nivel de los mejores',default,default);
+insert into comentarios values(5,5,'La tecnología de reconocimiento de huellas dactilares es muy precisa.',default,default);
+insert into comentarios values(6,1,'La calidad de imagen es increíble.',default,default);
+insert into comentarios values(6,3,'La durabilidad del dispositivo es impresionante.',default,default);
+insert into comentarios values(6,4,'La conectividad Wi-Fi es rápida y confiable.',default,default);
+insert into comentarios values(6,5,'El diseño es elegante y moderno.',default,default);
+insert into comentarios values(7,5,'La integración con otros servicios de Apple es excelente.',default,default);
+insert into comentarios values(7,3,'La tecnología de carga rápida es muy útil.',default,default);
+insert into comentarios values(7,2,'La calidad de construcción es duradera.',default,default);
+insert into comentarios values(7,1,'La duración de la batería es impresionante.',default,default);
+insert into comentarios values(8,4,'La tecnología de cancelación de ruido es impresionante.',default,default);
+insert into comentarios values(8,3,'La tecnología de reconocimiento de voz es precisa y útil.',default,default);
+insert into comentarios values(8,2,'La integración con otros dispositivos es excelente.',default,default);
+insert into comentarios values(8,1,'La Xbox ofrece una experiencia de juego de alta calidad y una amplia variedad de títulos para disfrutar.',default,default);
+insert into comentarios values(9,2,'La conectividad a internet es rápida y sin interrupciones.',default,default);
+insert into comentarios values(9,3,'El precio es bastante elevado para algunos usuarios.',default,default);
+insert into comentarios values(9,4,'El almacenamiento interno no es expandible.',default,default);
+insert into comentarios values(9,5,'Tuve varios problemas técnicos con mi consola Xbox, incluyendo errores en la lectura de discos y pantallas congeladas. Fue bastante frustrante tener que lidiar con estos problemas de manera recurrente.',default,default);
+insert into comentarios values(10,1,'La calidad del producto en general es impresionante.',default,default);
+insert into comentarios values(10,2,'La duración de la batería disminuye con el tiempo.',default,default);
+insert into comentarios values(10,4,'La pantalla es propensa a la rotura si se cae.',default,default);
+insert into comentarios values(10,5,'La experiencia de realidad virtual fue impresionante, me sentí completamente inmerso en un mundo completamente nuevo y emocionante. ¡Fue como estar en otro universo! Definitivamente recomiendo probarlo al menos una vez en la vida.',default,default);
