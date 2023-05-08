@@ -1,5 +1,5 @@
 const data = require ('../database/models') ;// ME TRAE TODOS LOS MODELOS 
-const usuarios= data.Usuario; // TIENE QUE COINCIDIR CON EL ALIAS DEL MODELO
+const usuarios= data.Usuario; // TIENE QUE COINCIDIR CON EL ALIAS DEL MODELO.
 const usersController = {
 
     login:function(req, res) {
