@@ -1,4 +1,5 @@
-const data = require ('../data/data')
+const data = require ('../database/models') ;// ME TRAE TODOS LOS MODELOS 
+const usuarios= data.Usuario; // TIENE QUE COINCIDIR CON EL ALIAS DEL MODELO
 const usersController = {
 
     login:function(req, res) {
@@ -26,7 +27,6 @@ const usersController = {
             userLogueado:true,
             user:data.user,
         })},
-        
 }
 
 module.exports= usersController
