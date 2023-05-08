@@ -6,23 +6,34 @@ module.exports = function(sequelize,dataTypes)  {
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        title:{
+        usuario:{
+            type: dataTypes.STRING,
+            allowNull: false 
+        },
+        mail:{
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        contraseña:{
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        foto_de_perfil:{
             type: dataTypes.STRING,
         },
-        rating:{
-            type: dataTypes.DECIMAL,
-        },
-        awards:{
-            type: dataTypes.INTEGER,
-        },
-        release_date:{
+        fecha_de_nacimiento:{
             type: dataTypes.DATE,
+            allowNull: false
         },
-        length:{
+        dni:{
             type: dataTypes.INTEGER,
+            allowNull: false
         },
-        genre_id:{
-            type: dataTypes.INTEGER,
+        createdAt:{
+
+        },
+        updatedAt:{
+
         }
     } ; // COLS ES UN OBJETO LITERAL CON EL MAPEO EXACTO COLUMNA POR COLUMNA DE MI TABLA SQL , HAY QUE PASARLO CON LAS CONSTRAINS.
     // LA VARIABLE COLS ES UN OBJETO LITERAL QUE TIENE PROPIEDADES, QUE CADA PROPIEDAD ES UN OBJETO LITERAL. ANIDACION DE OBJETOS LITERALES. ADENTRO DE ESTE TIENE PROPIEDADES QUE SON LAS CONTRAINS DE LA TABLA JUNTO CON LAS COLUMNAS.
