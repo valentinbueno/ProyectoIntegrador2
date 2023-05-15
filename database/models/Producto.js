@@ -17,10 +17,10 @@ module.exports = function(sequelize,dataTypes) {
         id_creador:{
             type: dataTypes.INTEGER,
         },
-        createdAt:{
+        created_at:{
 
         },
-        updatedAt:{
+        updated_at:{
 
         }
     };
@@ -30,5 +30,13 @@ module.exports = function(sequelize,dataTypes) {
         underscored: true, //True: Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };   
     const Producto = sequelize.define(alias,cols,config);
+
+    Producto.associate = function(models){
+        Producto.hasMany(models.Comentario, {
+            as: "comentario",
+            foreing_key: "id_producto",
+        })
+        }
+
     return Producto;
 }

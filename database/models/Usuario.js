@@ -29,10 +29,10 @@ module.exports = function(sequelize,dataTypes)  {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        createdAt:{
+        created_at:{
 
         },
-        updatedAt:{
+        updated_at:{
 
         }
     } ; // COLS ES UN OBJETO LITERAL CON EL MAPEO EXACTO COLUMNA POR COLUMNA DE MI TABLA SQL , HAY QUE PASARLO CON LAS CONSTRAINS.
@@ -48,6 +48,14 @@ module.exports = function(sequelize,dataTypes)  {
     }; //OBJETO LITERAL PARA CONFIGURAR LA TABLA
 
     const Usuario = sequelize.define(alias,cols,config);
+
+    Usuario.associate = function(models){
+        Usuario.hasMany(models.Comentario, {
+            as: "comentario",
+            foreing_key: "id_usuario"
+        })
+    }
+
     // EN ESTA VARIABLE ESTAS TRAYENDO EL PARAMETRO SEQUILIZE COMO UN OBJETO LITERAL CON EL METODO DEFINE QUE DEFINE EL MODELO Y LE PASA COMO VA A SER MI TABLA
     return Usuario; 
 }
