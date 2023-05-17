@@ -15,5 +15,9 @@ router.get('/profile',usersController.profile );
 // sufijo para profile edit
 router.get('/edit', usersController.edit );
 
+//sufijo para register nuevo
+router.get('/register', usersController.create);
+router.get('/register', usersController.store);
+
 
 module.exports = router;
