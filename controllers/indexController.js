@@ -4,7 +4,7 @@ const controllerIndex = {
         res.render('index', {
           products:data.products,
           user:data.user,
-          userLogueado:true,
+          userLogueado: true,
         })
       }
 }
