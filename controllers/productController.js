@@ -1,29 +1,39 @@
-const data = require ('../data/data')
+const data = require('../data/data')
+const db = require("../database/models")
 const controllerProduct = {
-  
-detalle:function(req, res) {
-  res.render('product',{
-      products:data.products,
-      userLogueado:false,
-      comments:data.comments
 
-  })},
+  detalle: function (req, res) {
+    res.render('product', {
+      products: data.products,
+      userLogueado: false,
+      comments: data.comments
 
-add:function(req, res){
-  res.render('product-add',{
-    userLogueado:true,
-    user:data.user,
-  })},
-
-search:function(req, res){
-    res.render('search-results',{
-      userLogueado:false,
-      products:data.products,
     })
+  },
 
-  
-}
 
+  search: function (req, res) {
+    res.render('search-results', {
+      userLogueado: false,
+      products: data.products,
+    })
+  },
+  createForm: (req, res) => {
+
+
+    return res.render('product-add', { userLogueado: true, user: { usuario: "Jose" } })
+  },
+  save: (req, res) => {
+    let informacion = req.body;
+
+    
+    db.Producto.create(informacion)
+      .then((devolucion) => {
+      return res.redirect('/')
+      }).catch((error) => {
+        console.log(error)
+      })
+  }
 }
 
 module.exports = controllerProduct;

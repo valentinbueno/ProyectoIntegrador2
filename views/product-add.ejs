@@ -10,7 +10,7 @@
 			<!-- Show the "ultimos" products -->
 			<section >
 
-				<form action="/" method="GET">
+				<form action="/product/create" method="POST">
 
 					<div>
 						<label> Imagen del producto:</label>
@@ -19,17 +19,17 @@
 	
 					<div>
 						<label> Nombre del producto:</label> 
-						<input type="name" name="name" value="">
+						<input type="name" name="nombre" value="">
 					</div>
 	
 					<div>
 						<label> Descripción:</label>
-						 <input type="text" name="description" value="">
+						 <input type="text" name="descripcion" value="">
 					</div>
 	
 					<div>
 						<label> Fecha de carga:</label>
-						 <input type="date" name="age" value="">
+						 <input type="date" name="created_at" value="">
 					</div>
 					<div>
 						<input class="enviar" type="submit" value="Enviar">

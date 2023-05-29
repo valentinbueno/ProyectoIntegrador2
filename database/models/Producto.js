@@ -6,6 +6,9 @@ module.exports = function(sequelize,dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
+        imagen:{
+            type: dataTypes.STRING,
+        },
         nombre:{
             type: dataTypes.STRING,
             allowNull: false
@@ -36,6 +39,10 @@ module.exports = function(sequelize,dataTypes) {
             as: "comentario",
             foreing_key: "id_producto",
         })
+        Producto.belongsTo = models.Usuario, {
+            as: 'usuario',
+            foreing_key: 'id_usuario'
+        }
         }
 
     return Producto;
