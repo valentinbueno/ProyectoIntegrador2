@@ -18,10 +18,10 @@ module.exports = function(sequelize,dataTypes) {
             type: dataTypes.INTEGER,
         },
         created_at:{
-
+            type: dataTypes.STRING,
         },
         updated_at:{
-
+            type: dataTypes.STRING,
         }
     };
     let config = {

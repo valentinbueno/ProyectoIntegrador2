@@ -30,10 +30,10 @@ module.exports = function(sequelize,dataTypes)  {
             allowNull: false
         },
         created_at:{
-
+            type: dataTypes.STRING,
         },
         updated_at:{
-
+            type: dataTypes.STRING,
         }
     } ; // COLS ES UN OBJETO LITERAL CON EL MAPEO EXACTO COLUMNA POR COLUMNA DE MI TABLA SQL , HAY QUE PASARLO CON LAS CONSTRAINS.
     // LA VARIABLE COLS ES UN OBJETO LITERAL QUE TIENE PROPIEDADES, QUE CADA PROPIEDAD ES UN OBJETO LITERAL. ANIDACION DE OBJETOS LITERALES. ADENTRO DE ESTE TIENE PROPIEDADES QUE SON LAS CONTRAINS DE LA TABLA JUNTO CON LAS COLUMNAS.
