@@ -8,11 +8,33 @@ const usersController = {
         
         })},
 
+    storeLogin:function(req, res) {
+        res.redirect('/users/profile'
+        
+        )},
+
     register:function(req, res) {
         res.render('register',{
             userLogueado:false,
 
         })},
+
+    storeRegister:function(req, res) {
+        let info = req.body;
+    
+        let userStore = {
+            name: info.name,
+            email:info.email,
+            password: info.password,
+            created_at: new Date (),
+            created_at: new Date(),
+        }
+
+        console.log(userStore)
+    
+        res.redirect('/users/login'
+    
+        )},
 
 
     profile:function(req, res) {
@@ -27,24 +49,11 @@ const usersController = {
             userLogueado:true,
             user:data.user,
         })},
-    create: function(req, res) {
-        res.render('register')
-        },
-    store: function (req,res) {
-        let info= req.body;
-        let userStore = {
-            name: info.name,
-            email:info.email,
-            created_at: new Date()
-            }
-        user.create(userStore)
-        .then (function (result) {
-            return res.redirect('/user/login');
-        })
-        .catch(function (error) {
-            console.log(error);
-        })},
     
+    
+
+
+
     login_post: function (req, res) {
         let email_buscado = req.body.email;
         let filtrado = {
