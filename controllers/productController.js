@@ -3,6 +3,13 @@ const db = require("../database/models")
 const controllerProduct = {
 
   detalle: function (req, res) {
+
+    let id = req.params.id;
+
+
+
+
+    ///
     res.render('product', {
       products: data.products,
       userLogueado: false,
