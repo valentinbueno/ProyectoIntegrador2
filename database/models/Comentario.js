@@ -39,6 +39,12 @@ module.exports = function(sequelize,dataTypes) {
             as: "usuario",
             foreing_key: "id_usuario"
         })
+        Comentario.belongsTo(models.Producto, {
+            as: "producto",
+            foreing_key: "id_producto"
+        }
+
+        )
     }
     
 

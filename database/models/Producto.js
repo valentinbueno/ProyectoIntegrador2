@@ -41,7 +41,7 @@ module.exports = function(sequelize,dataTypes) {
         })
         Producto.belongsTo = models.Usuario, {
             as: 'usuario',
-            foreing_key: 'id_usuario'
+            foreing_key: 'id_creador'
         }
         }
 

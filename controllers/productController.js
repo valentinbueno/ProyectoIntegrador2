@@ -25,8 +25,7 @@ const controllerProduct = {
   },
   save: (req, res) => {
     let informacion = req.body;
-
-    
+    console.log(informacion) // para ver que se cargue el producto correctamente  
     db.Producto.create(informacion)
       .then((devolucion) => {
       return res.redirect('/')
