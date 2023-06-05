@@ -31,7 +31,6 @@ updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 FOREIGN KEY (id_creador) REFERENCEs usuarios(id)
 );
 
-airpod.jpg
 -- Inserto los 10 productos
 insert into productos(id, imagen, nombre, descripcion, id_creador, created_at, updated_at) values (default,'/images/products/ipad2.jpg', 'IPAD PRO', 'Es un dispositivo de pantalla táctil que se encuentra categorizado como un intermedio entre los teléfonos inteligentes y los computadores portátiles. Puedes utilizarlo para leer, estudiar, ver películas o videos, escuchar música, escribir, comunicarte y más.',2, default, default);
 insert into productos values(default,'/images/products/img-macbook-pro-2019.jpg','Mackbook pro', 'Sobrealimentado por el chip M2 de próxima generación, el MacBook Air rediseñado combina un rendimiento increíble y hasta 18 horas de duración de la batería en su carcasa de aluminio sorprendentemente delgada.', 3, default, default);
