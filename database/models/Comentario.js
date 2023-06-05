@@ -1,14 +1,16 @@
 module.exports = function(sequelize,dataTypes) {
     let alias = 'Comentario';
     let cols = {
-        id_producto:{
+        id:{
             autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        id_usuario:{
+        id_producto:{
             type: dataTypes.INTEGER,
-            
+        },
+        id_creador:{
+            type: dataTypes.INTEGER, 
         },
         comentario:{
             type: dataTypes.STRING,
@@ -26,27 +28,15 @@ module.exports = function(sequelize,dataTypes) {
         underscored: true, //True: Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     }; 
     const Comentario = sequelize.define(alias,cols,config);
-
-    Comentario.associate = function(models){
-        Comentario.belongsTo(models.Producto, {
-            as: "producto",
-            foreing_key: "id_producto"
-        })
-    }
-
     Comentario.associate = function(models){
         Comentario.belongsTo(models.Usuario, {
-            as: "usuario",
-            foreing_key: "id_usuario"
+            as: "usuarios",
+            foreing_key: "id_creador"
         })
         Comentario.belongsTo(models.Producto, {
-            as: "producto",
+            as: "productos",
             foreing_key: "id_producto"
-        }
-
-        )
+        })
     }
-    
-
     return Comentario;
 }

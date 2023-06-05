@@ -36,11 +36,11 @@ module.exports = function(sequelize,dataTypes) {
 
     Producto.associate = function(models){
         Producto.hasMany(models.Comentario, {
-            as: "comentario",
+            as: "comentarios",
             foreing_key: "id_producto",
         })
         Producto.belongsTo = models.Usuario, {
-            as: 'usuario',
+            as: 'usuarios',
             foreing_key: 'id_creador'
         }
         }
