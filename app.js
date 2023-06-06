@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const session = require('express-session');
+//const session = require('express-session');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -12,7 +12,7 @@ let productRouter = require('./routes/product');
 var app = express();
 
 // Ejecuto session
-app.use(session({secret: "Kiwi Electronics", resave: false, saveUninitialized: true}));
+//app.use(session({secret: "Kiwi Electronics", resave: false, saveUninitialized: true}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
