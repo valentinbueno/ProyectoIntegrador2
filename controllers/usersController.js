@@ -3,21 +3,18 @@ const usuarios= data.Usuario; // TIENE QUE COINCIDIR CON EL ALIAS DEL MODELO.
 const usersController = {
 
     login:function(req, res) {
-        res.render('login',{
-            userLogueado:false,
-        
-        })},
+        res.render('login')
+    },
 
     storeLogin:function(req, res) {
-        res.redirect('/users/profile'
-        
-        )},
+        // Recibir la info del formulario y ñvalidar si el mail existe en la Base de datos y si la contraseña coincide con la contraseña encriptada que tengo en la base de datos
+        // ACA tu creas una session y mandas un locals 
+        res.redirect('/users/profile')
+    },
 
     register:function(req, res) {
-        res.render('register',{
-            userLogueado:false,
-
-        })},
+        res.render('register')
+    },
 
     storeRegister:function(req, res) {
         let info = req.body;
@@ -29,12 +26,11 @@ const usersController = {
             created_at: new Date (),
             created_at: new Date(),
         }
-
+        // Hacer el create con el modelo para guardar el registro en la base de datos, siempre usando del trycatch
         console.log(userStore)
     
-        res.redirect('/users/login'
-    
-        )},
+        res.redirect('/users/login')
+    },
 
 
     profile:function(req, res) {

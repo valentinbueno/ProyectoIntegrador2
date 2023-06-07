@@ -6,46 +6,24 @@ let op = db.Sequelize.Op
 const controllerProduct = {
 
   detalle: function (req, res) {
-
     let id = req.params.id;
+    let rel = {
+      include: [{association: "comentarios"}]
+    }
+
+   
+
     //filtro por PK
-
-    producto.findByPk(id)
-    
-    
-    .then(function (result) {
-      return res.render('product',{
-
-        producto: result
-
-      }
-
-
-
-      )
-      
-    })
-    
-    
-    
-    
-    .catch(function (error) {
-      
-    });
-
-
-
-
-
-
-
-    ///
-    res.render('product', {
-      products: data.products,
-      userLogueado: false,
-      comments: data.comments
-
-    })
+    producto.findByPk(id, rel)
+      .then(function (result) {
+        console.log(result.dataValues)
+        return res.render('product', {
+          producto: result.dataValues
+        })
+      })
+      .catch(function (error) {
+        console.log(error)
+      });
   },
 
 
@@ -65,7 +43,7 @@ const controllerProduct = {
     console.log(informacion) // para ver que se cargue el producto correctamente  
     db.Producto.create(informacion)
       .then((devolucion) => {
-      return res.redirect('/')
+        return res.redirect('/')
       }).catch((error) => {
         console.log(error)
       })

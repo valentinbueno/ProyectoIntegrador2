@@ -3,24 +3,24 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= product[0].nombre %></h2> 
+			<h2 class="products-title"><%= producto.nombre %></h2> 
 			<p class="product-detail-edit"><a href="/product/create">Editar</a></p>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src=<%= products[0].imagen %> alt="" class="product-detail-img">
-					<p class="product-detail-description"><%= products[0].descripcion %></p>
+					<img src=<%= producto.imagen %> alt="" class="product-detail-img">
+					<p class="product-detail-description"><%= producto.descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for( let i = 0; i < comments.length; i++ ) { %>
+						<% for( let i = 0; i < producto.comentarios.length; i++ ) { %>
 							<article>
-									<img src=<%= comments[i].fotoDePerfil %> alt="">
+									<img src=<%= producto.comentarios.foto_de_perfil %> alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="profile.html"><%= comments[i].usuario %>: </a> </strong>
-									<%= comments[i].comentario %></p>
+									<strong> <a href="profile.html"><%= producto.comentarios.usuario %>: </a> </strong>
+									<%= producto.comentarios.comentario %></p>
 								</div>
 							</article>
 						<% } %>
