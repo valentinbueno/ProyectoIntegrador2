@@ -1,10 +1,40 @@
 const data = require('../data/data')
 const db = require("../database/models")
+const producto = db.Producto
+let op = db.Sequelize.Op
+
 const controllerProduct = {
 
   detalle: function (req, res) {
 
     let id = req.params.id;
+    //filtro por PK
+
+    producto.findByPk(id)
+    
+    
+    .then(function (result) {
+      return res.render('product',{
+
+        producto: result
+
+      }
+
+
+
+      )
+      
+    })
+    
+    
+    
+    
+    .catch(function (error) {
+      
+    });
+
+
+
 
 
 
