@@ -4,7 +4,8 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto.nombre %></h2> 
-			<p class="product-detail-edit"><a href="/product/create">Editar</a></p>
+			<!-- falta agregar un condicional con el tema del usuario, si el usuario logeado es el mismo que el del producto en pantalla, deberia aparecer el boton de editar -->
+			<p class="product-detail-edit"><a href="/product/editar/id/<%=producto.id%>">Editar</a></p>
 		</div>
 		<div class="product-detail">
 			<div class="row">

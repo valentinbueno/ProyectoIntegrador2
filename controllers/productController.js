@@ -47,7 +47,22 @@ const controllerProduct = {
       }).catch((error) => {
         console.log(error)
       })
-  }
+  },
+  editar: (req,res) => {
+    let id= req.params.id;
+    producto.findByPk(id)
+    .then((devolucion) => {
+      console.log(devolucion);
+      return res.render("product-edit", {producto:devolucion})
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },
+  saveEdit: (req,res) =>{
+
+  },
+  eliminar: (req,res) =>{}
 }
 
 module.exports = controllerProduct;

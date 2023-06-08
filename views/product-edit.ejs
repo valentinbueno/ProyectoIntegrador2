@@ -1,0 +1,47 @@
+<%- include('./partials/head') %>
+<%- include('./partials/header') %>
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar producto</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<section >
+
+				<form action="/product/editar/id/<%=producto.id%>" method="POST">
+
+					<div>
+						<label> Imagen del producto:</label>
+						<input class="AGREGA VALEN" type="text" id="imagen" name="imagen" value="<%= producto.imagen %>">
+					</div>
+	
+					<div>
+						<label> Nombre del producto:</label> 
+						<input type="name" name="nombre" value="<%= producto.nombre %>">
+					</div>
+	
+					<div>
+						<label> Descripción:</label>
+						 <input type="text" name="descripcion" value="<%= producto.descripcion %>">
+					</div>
+	
+					<div>
+						<label> Fecha de carga:</label>
+						 <input type="date" name="created_at" value="<%= producto.created_at %>">
+					</div>
+					<div>
+						<input class="enviar" type="submit" value="Enviar">
+					</div>
+	
+	
+	
+	
+	
+	
+	
+			</section>
+
+	<%- include('./partials/footer') %>
+	
