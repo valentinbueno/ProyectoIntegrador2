@@ -25,8 +25,6 @@ const controllerProduct = {
         console.log(error)
       });
   },
-
-
   search: function (req, res) {
     res.render('search-results', {
       userLogueado: false,
@@ -34,8 +32,6 @@ const controllerProduct = {
     })
   },
   createForm: (req, res) => {
-
-
     return res.render('product-add', { userLogueado: true, user: { usuario: "Jose" } })
   },
   save: (req, res) => {
@@ -60,9 +56,37 @@ const controllerProduct = {
     })
   },
   saveEdit: (req,res) =>{
+    let id= req.params.id;
+    let data= req.body;
+    producto.update(data, {
+      where: [
+        {id:id}
+      ]
+    })
+    .then((devolucion) => {
+      return res.redirect("/product/id/" + id)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    
 
   },
-  eliminar: (req,res) =>{}
+  eliminar: (req,res) =>{
+    let id_destructor= req.body.id
+    producto.destroy({
+      where: [
+        {id:id_destructor}
+      ]
+    })
+    .then((devolucion) => {
+      return res.redirect("/")
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    
+  }
 }
 
 module.exports = controllerProduct;
