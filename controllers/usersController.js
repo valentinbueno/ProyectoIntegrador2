@@ -23,7 +23,7 @@ const usersController = {
         let userStore = {
             usuario: info.usuario,
             mail: info.mail,
-            contraseña: bcrypt.hashSync(info.contraseña, 10),
+            password: bcrypt.hashSync(info.password, 10),
             foto_de_perfil: info.foto_de_perfil,
             fecha_de_nacimiento: info.fecha_de_nacimiento,
             dni: info.dni,
