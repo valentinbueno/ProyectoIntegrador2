@@ -1,5 +1,6 @@
 const data = require ('../database/models') ;// ME TRAE TODOS LOS MODELOS 
 const usuarios= data.Usuario; // TIENE QUE COINCIDIR CON EL ALIAS DEL MODELO.
+const bcrypt = require('bcryptjs');
 const usersController = {
 
     login:function(req, res) {
@@ -20,16 +21,24 @@ const usersController = {
         let info = req.body;
     
         let userStore = {
-            name: info.name,
-            email:info.email,
-            password: info.password,
-            created_at: new Date (),
-            created_at: new Date(),
+            usuario: info.usuario,
+            mail: info.mail,
+            contraseña: bcrypt.hashSync(info.contraseña, 10),
+            foto_de_perfil: info.foto_de_perfil,
+            fecha_de_nacimiento: info.fecha_de_nacimiento,
+            dni: info.dni,
         }
         // Hacer el create con el modelo para guardar el registro en la base de datos, siempre usando del trycatch
-        console.log(userStore)
-    
-        res.redirect('/users/login')
+        usuarios.create(userStore)
+        .then(function(result) {
+
+            return res.redirect('/users/login')
+            
+        }).catch(function(error) {
+
+            console.log(error);
+            
+        })
     },
 
 
