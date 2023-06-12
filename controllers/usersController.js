@@ -8,9 +8,6 @@ const usersController = {
     },
 
     login_post:function(req, res) {
-        // Recibir la info del formulario y ñvalidar si el mail existe en la Base de datos y si la contraseña coincide con la contraseña encriptada que tengo en la base de datos
-        // ACA tu creas una session y mandas un locals 
-        //res.redirect('/users/profile')
         let email_buscado = req.body.mail;
         let password = req.body.password
         let filtrado = {
