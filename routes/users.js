@@ -6,7 +6,7 @@ const usersController= require('../controllers/usersController')
 // sufijo para login
 router.get('/login', usersController.login);
 
-router.post('/login', usersController.storeLogin);
+router.post('/login', usersController.login_post);
 
 
 // sufijo para register

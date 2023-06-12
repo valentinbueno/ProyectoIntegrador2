@@ -27,7 +27,7 @@
 				<i class="fas fa-bars"></i>
 			</button>
 
-			<%  if (locals.userLogueado) {%><nav class="main-navbar">
+			<%  if (locals.usuario) {%><nav class="main-navbar">
 					<ul class="left-navbar">
 						<li><a href="/">Todos los productos</a></li>
 						<li><a href="/product/create">Cargar productos</a></li>
@@ -39,7 +39,7 @@
 
 
 						<li><a class="nombreUsuario" href="/users/profile">
-								<%= locals.userLogueado.nombre %> <i class="fas fa-user"></i>
+								<%= locals.usuario.usuario %> <i class="fas fa-user"></i>
 							</a>
 						</li>
 

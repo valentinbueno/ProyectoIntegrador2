@@ -7,10 +7,34 @@ const usersController = {
         res.render('login')
     },
 
-    storeLogin:function(req, res) {
+    login_post:function(req, res) {
         // Recibir la info del formulario y ñvalidar si el mail existe en la Base de datos y si la contraseña coincide con la contraseña encriptada que tengo en la base de datos
         // ACA tu creas una session y mandas un locals 
-        res.redirect('/users/profile')
+        //res.redirect('/users/profile')
+        let email_buscado = req.body.mail;
+        let password = req.body.password
+        let filtrado = {
+            where: [{mail: email_buscado}]
+        };
+
+        usuarios.findOne(filtrado)
+        .then((result) => {
+            if (result != null) {
+                let clave_correcta = bcrypt.compareSync(password, result.password)
+                if(clave_correcta){
+                    req.session.usuario = result.dataValues
+                    return res.redirect('/');
+                } else{
+                    return res.send('Contraseña incorrecta')
+                }
+                }else{
+                return res.send('Mail inexistente')
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+        
     },
 
     register:function(req, res) {
@@ -54,29 +78,6 @@ const usersController = {
             userLogueado:true,
             user:data.user,
         })},
-    
-    
-
-
-
-    login_post: function (req, res) {
-        let email_buscado = req.body.email;
-        let filtrado = {
-            where: [{email:email_buscado}]
-        };
-        user.findOne(filtrado)
-        .then((result) => {
-            if (result != null) {
-                return res.send('Existe el mail')
-            }
-            else{
-                return res.send('Nooo existe el mail')
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        })}
-    
 }
 
 module.exports= usersController
