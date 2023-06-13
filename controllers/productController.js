@@ -25,11 +25,35 @@ const controllerProduct = {
         console.log(error)
       });
   },
-  search: function (req, res) {
-    res.render('search-results', {
-      userLogueado: false,
-      products: data.products,
+
+
+
+  search: (req, res)=> {
+    let busqueda = req.query.search;
+
+    producto.findAll(
+      {
+      where: [{
+        nombre: busqueda
+
+      }]
+
+    }).then(function(result){
+      return res.render('search-results',{productos:result});
+
     })
+
+    .catch(function (error) {
+      
+    })
+
+  
+  
+
+
+
+
+
   },
   createForm: (req, res) => {
     return res.render('product-add', { userLogueado: true, user: { usuario: "Jose" } })
