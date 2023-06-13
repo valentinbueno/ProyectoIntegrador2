@@ -42,4 +42,3 @@ db.Sequelize = Sequelize;
 
 module.exports = db;
 // DB EXPORTA UN OBJETO LITERAL QUE TIENE TODOS LOS OBJETOS 
-// CAMBIOS PARA JORDAN

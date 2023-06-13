@@ -31,15 +31,19 @@ const controllerProduct = {
   search: (req, res)=> {
     let busqueda = req.query.search;
 
-    producto.findAll(
-      {
-      where: [{
-        nombre: busqueda
+    producto.findAll({
+      
+      where:{
+        [op.or]:[
+        {nombre: { [op.like]: "%" + busqueda + "%" }},
+        {descripcion: { [op.like]: "%" + busqueda + "%" }},
 
-      }]
+        ]}
+
+         
 
     }).then(function(result){
-      return res.render('search-results',{productos:result});
+      return res.render('search-results',{productos: result });
 
     })
 
@@ -47,11 +51,11 @@ const controllerProduct = {
       
     })
 
+    
+
+
+
   
-  
-
-
-
 
 
   },

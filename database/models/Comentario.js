@@ -40,4 +40,3 @@ module.exports = function(sequelize,dataTypes) {
     }
     return Comentario;
 }
-// CAMBIOS PARA JORDAN
