@@ -7,18 +7,25 @@ const controllerProduct = {
 
   detalle: function (req, res) {
     let id = req.params.id;
+
+
+
+    //creo relacion
     let rel = {
-      include: [{association: "comentarios"}]
+      include: [{association: "comentarios"},
+      // { association: "usuarios" }
+    ]
     }
+
 
    
 
     //filtro por PK
     producto.findByPk(id, rel)
       .then(function (result) {
-        console.log(result.dataValues)
+        console.log(result)
         return res.render('product', {
-          producto: result.dataValues
+          producto: result
         })
       })
       .catch(function (error) {
