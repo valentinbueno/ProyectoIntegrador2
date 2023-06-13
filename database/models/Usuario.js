@@ -64,3 +64,4 @@ module.exports = function(sequelize,dataTypes)  {
     return Usuario; 
 }
 // Los dos parametros son 2 objetos literales
+// CAMBIOS PARA JORDAN

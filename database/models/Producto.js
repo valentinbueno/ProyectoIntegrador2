@@ -46,3 +46,4 @@ module.exports = function(sequelize,dataTypes) {
 
     return Producto;
 }
+// CAMBIOS PARA JORDAN
