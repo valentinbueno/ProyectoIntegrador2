@@ -65,6 +65,7 @@ const controllerProduct = {
 
   },
   createForm: (req, res) => {
+    
     return res.render('product-add', { userLogueado: true, user: { usuario: "Jose" } })
   },
   save: (req, res) => {
@@ -119,6 +120,18 @@ const controllerProduct = {
       console.log(error);
     });
     
+  },
+  comentar: (req,res)=> {
+    let data= req.params.id;
+    let informacion = req.body;
+  
+    console.log(informacion) // para ver que se cargue el comentario correctamente
+    db.Comentario.create(informacion)
+      .then((devolucion) => {
+        return res.render("product")
+      }).catch((error) => {
+        console.log(error)
+      })  
   }
 }
 

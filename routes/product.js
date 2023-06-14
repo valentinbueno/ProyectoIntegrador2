@@ -22,5 +22,6 @@ router.get('/editar/id/:id',controllerProduct.editar);
 router.post('/editar/id/:id',controllerProduct.saveEdit);
 //Armamos el metodo por el cual eliminamos un producto
 router.post('/eliminar/id/:id',controllerProduct.eliminar);
-
+//Armamos el metodo por el cual guardamos el comentario
+router.post('/comentar',controllerProduct.comentar);
 module.exports = router;

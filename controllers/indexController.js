@@ -5,7 +5,11 @@ const controllerIndex = {
     index: function(req, res) {
 
 
-      db.Producto.findAll()
+      db.Producto.findAll({
+        order:[
+          ['created_at','DESC']
+        ]
+      })
       .then(function(result) {
         res.render('index', {
           products: result,
