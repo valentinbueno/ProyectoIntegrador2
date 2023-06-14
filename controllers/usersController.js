@@ -20,6 +20,9 @@ const usersController = {
                 let clave_correcta = bcrypt.compareSync(password, result.password)
                 if(clave_correcta){
                     req.session.usuario = result.dataValues
+                    if(req.body.remember != undefined){
+                        res.cookie('userId', result.id, {maxAge: 1000 * 60 * 15})
+                    }
                     return res.redirect('/');
                 } else{
                     return res.send('Contraseña incorrecta')

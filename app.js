@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 
+const db = require("./database/models")
+
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let productRouter = require('./routes/product');
@@ -24,12 +26,32 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Configuracion de locals
 app.use((req, res, next)=>{
   if(req.session.usuario != undefined) {
     res.locals.usuario = req.session.usuario
     return next()
   }
   return next()
+})
+
+//Configuracion de cookies
+app.use(function(req,res,next){
+  if (req.cookies.userId != undefined && req.session.usuario == undefined) {
+    let idUsuarioEnCookie = req.cookies.userId;
+    db.Usuario.findByPk(idUsuarioEnCookie)
+    .then((usuario) =>{
+      req.session.usuario = usuario.dataValues;
+      res.locals.usuario = usuario.dataValues
+
+      return next();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  } else {
+    return next()
+  }
 })
 
 app.use('/', indexRouter);
