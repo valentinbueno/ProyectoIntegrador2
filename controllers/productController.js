@@ -12,13 +12,11 @@ const controllerProduct = {
 
     //creo relacion
     let rel = {
-      include: [{association: "comentarios"},
-      // { association: "usuarios" }
+      include: [{association: "usuarios"},{association: "comentarios", include:[{association:"usuarios"}]}
+      
     ]
     }
 
-
-   
 
     //filtro por PK
     producto.findByPk(id, rel)

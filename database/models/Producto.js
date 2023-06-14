@@ -38,11 +38,11 @@ module.exports = function(sequelize,dataTypes) {
             as: "comentarios",
             foreignKey: "id_producto",
         })
-        Producto.belongsTo = models.Usuario, {
+        Producto.belongsTo(models.Usuario, {
             as: 'usuarios',
             foreignKey: 'id_creador'
-        }
-        }
+        })
+    }
 
     return Producto;
 }
