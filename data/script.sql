@@ -14,10 +14,10 @@ updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 -- Inserto los 5 usuarios
 insert into usuarios(id, usuario,mail, password, foto_de_perfil, fecha_de_nacimiento, dni, created_at, updated_at) values (default,'Julio Cesar', 'julio@gmail.com', '11223344*', '/images/users/julio.jpg', '1976-08-05', 24658390, default, default) ;
-insert into usuarios values(default,'Isco', 'isco@gmail.com', 'Madridismo','/images/users/julio.jpg' , '1990-03-17', 33683425, default, default);
-insert into usuarios values(default,'Diego Maradona', 'maradona@gmail.com', 'golconlamano', '/images/users/julio.jpg','1994-07-23',35753890, default, default);
-insert into usuarios values(default,'Enzo Perez', 'enzoperez@gmail.com', '9-12-2018', '/images/users/julio.jpg','1992-09-16',32783891, default, default);
-insert into usuarios values(default,'Lionel Messi', 'messi@gmail.com', 'pulga', '/images/users/julio.jpg','2000-06-24',39153850, default, default);
+insert into usuarios values(default,'Isco', 'isco@gmail.com', 'Madridismo','/images/users/isco.jpg' , '1990-03-17', 33683425, default, default);
+insert into usuarios values(default,'Diego Maradona', 'maradona@gmail.com', 'golconlamano', '/images/users/maradona.jpg','1994-07-23',35753890, default, default);
+insert into usuarios values(default,'Enzo Perez', 'enzoperez@gmail.com', '9-12-2018', '/images/users/enzo.jpg','1992-09-16',32783891, default, default);
+insert into usuarios values(default,'Lionel Messi', 'messi@gmail.com', 'pulga', '/images/users/messi.jpg','2000-06-24',39153850, default, default);
 
 -- Creo Tabla productos
 create table productos(
