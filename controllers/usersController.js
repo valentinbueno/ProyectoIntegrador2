@@ -116,12 +116,32 @@ const usersController = {
                         }},
 
 
-    profile:function(req, res) {
-        res.render('profile',{
-            userLogueado:true,
-            user:data.user,
-            products:data.products,
-        })},
+
+                        profile: function(req, res){
+                            let id = req.params.id
+                            
+                            //creo realcion
+                            let rel2=  {
+                                include: [{association: "comentarios"},{association: "productos"}], 
+                                order: [['createdAt', 'ASC'] ]} 
+                    
+                        //filtro por PK
+                        usuarios.findByPk(id,rel2)
+                            .then(function(result){
+                                console.log(result)
+                            
+                                return res.render('profile', {
+                                    datosUsuario: result})
+                    
+                            })
+                            .catch( function(error){
+                                console.log(error);
+                            })   
+                        },
+                           
+                        
+
+
 
     edit: function(req, res) {
         res.render('profile-edit',{

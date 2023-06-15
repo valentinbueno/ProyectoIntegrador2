@@ -1,15 +1,16 @@
 <%- include('./partials/head') %>
 <%- include('./partials/header') %>
 
+	
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src=<%=  %> alt="foto de perfil" class="foto-perfil">
+				<img src=<%=datosUsuario.foto_de_perfil%> alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%= locals.usuario.usuario %> 
+					<h1 class="main-title"><%= datosUsuario.usuario %> 
 						<a href="/users/edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -18,16 +19,23 @@
 				</div>
 				<div>
 					<ul>
-						<li>Email: <%= locals.usuario.mail %></li>
-						<li>8 productos</li>
-						<li>200 seguidores</li>
-						<li>300 comentarios</li>
+						<li>Email: <%= datosUsuario.mail %></li>
+						<li>Productos: <%= datosUsuario.productos.length %></li>
+						<li>Comentarios: <%= datosUsuario.comentarios.length %></li>
+
+
+
+
 					</ul>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- /Datos del usuario -->
+
+
+
+	<!-- /Mis productos -->
 
 	<!-- Mis productos -->
 	<div class="container products-wrapper">
@@ -37,19 +45,22 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 
-			<% for (let i=0; i<8; i++) {%>
+
+			<% for (let i=0; i<datosUsuario.productos.length; i++) {%>
 
 			<div class="col-12 col-sm-6 col-lg-3">
 				
 
 				<section class="product-box">
-					<a href="/product">
+
+					<a href="/product/id/<%=datosUsuario.productos[i].id%>">
+
 						<figure class="product-box_image">
-							<img class= 'img-ind' src=<%=  %>>
+							<img class= 'img-ind' src=<%= datosUsuario.productos[i].imagen %>>
 						</figure>
 						<article class="product-box_data">
-							<h2><%= %></h2>
-							<p>10 usuarios consultaron por tu producto</p>
+							<h2><%= datosUsuario.productos[i].nombre%></h2>
+							<p><%= datosUsuario.productos[i].nombre%></p>
 						</article>
 					</a>
 				</section>

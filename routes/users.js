@@ -16,7 +16,7 @@ router.post('/register',usersController.storeRegister);
 
 
 // sufijo para profile
-router.get('/profile',usersController.profile );
+router.get('/profile/id/:id',usersController.profile );
 
 // sufijo para profile edit
 router.get('/edit', usersController.edit );

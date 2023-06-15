@@ -73,9 +73,13 @@ const controllerProduct = {
     return res.render('product-add', { userLogueado: true, user: { usuario: "Jose" } })
   },
   save: (req, res) => {
-    let informacion = req.body;
-    console.log(informacion) // para ver que se cargue el producto correctamente  
-    db.Producto.create(informacion)
+
+    let {imagen,nombre,descripcion}= req.body;
+    let id_creador = req.session.usuario.id
+
+    db.Producto.create({imagen,nombre,descripcion,id_creador})
+
+
       .then((devolucion) => {
         return res.redirect('/')
       }).catch((error) => {
