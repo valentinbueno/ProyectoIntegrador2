@@ -12,9 +12,10 @@ const controllerProduct = {
 
     //creo relacion
     let rel = {
-      include: [{association: "usuarios"},{association: "comentarios", include:[{association:"usuarios"}]}
-      
-    ]
+      include: [{association: "usuarios"},{association: "comentarios", include:[{association:"usuarios"}]}],
+      limit: 7, order: [
+        ['createdAt', 'DESC']
+    ] 
     }
 
 
@@ -43,7 +44,10 @@ const controllerProduct = {
         {nombre: { [op.like]: "%" + busqueda + "%" }},
         {descripcion: { [op.like]: "%" + busqueda + "%" }},
 
-        ]}
+        ]},
+
+        order: [
+          ['createdAt', 'DESC']]
 
          
 

@@ -22,5 +22,9 @@ router.get('/profile',usersController.profile );
 router.get('/edit', usersController.edit );
 
 
+//sufijo para busqueda de usuarios
+router.get('/search', usersController.search );
+
+
 
 module.exports = router;

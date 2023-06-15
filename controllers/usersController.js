@@ -1,6 +1,8 @@
 const data = require ('../database/models') ;// ME TRAE TODOS LOS MODELOS 
 const usuarios= data.Usuario; // TIENE QUE COINCIDIR CON EL ALIAS DEL MODELO.
 const bcrypt = require('bcryptjs');
+const db = require("../database/models")
+let op = db.Sequelize.Op
 const usersController = {
 
     login:function(req, res) {
@@ -78,6 +80,36 @@ const usersController = {
             userLogueado:true,
             user:data.user,
         })},
-}
+
+
+        search: (req, res)=> {
+            let busqueda = req.query.search;
+        
+            usuarios.findAll({
+              
+              where:{
+                [op.or]:[
+                {usuario: { [op.like]: "%" + busqueda + "%" }},
+                {mail: { [op.like]: "%" + busqueda + "%" }},
+        
+                ]},
+        
+                order: [
+                  ['createdAt', 'DESC']]
+        
+                 
+        
+            }).then(function(result){
+              return res.render('search-users',{usuarios: result });
+        
+            })
+        
+            .catch(function (error) {
+              
+            })}
+
+
+    
+    }
 
 module.exports= usersController
