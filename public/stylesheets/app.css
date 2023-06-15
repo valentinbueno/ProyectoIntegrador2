@@ -506,6 +506,10 @@ input{
   font-size: 1.4em;
 }
 
+.errorUsuario{
+  color: white;
+}
+
 textarea.form-input {
   min-height: 140px;
   resize: vertical;

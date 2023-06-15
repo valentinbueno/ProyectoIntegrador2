@@ -42,6 +42,9 @@
 					<label> DNI:</label> 
 					<input type="text" name="dni" value="">
 				</div>
+				<% if (locals.errors) { %>
+					<p class="errorUsuario"><%= locals.errors.message %></p>
+				<% } %>
 				<div>
 					<input class="enviar" type="submit" value="Enviar">
 				</div>

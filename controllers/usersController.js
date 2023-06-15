@@ -45,27 +45,64 @@ const usersController = {
 
     storeRegister:function(req, res) {
         let info = req.body;
-    
-        let userStore = {
-            usuario: info.usuario,
-            mail: info.mail,
-            password: bcrypt.hashSync(info.password, 10),
-            foto_de_perfil: info.foto_de_perfil,
-            fecha_de_nacimiento: info.fecha_de_nacimiento,
-            dni: info.dni,
+        let errors = {}
+        if(req.body.mail=="" && req.body.usuario=="" && req.body.password=="" && req.body.dni==""){
+            errors.message = "Complete los campos"
+            res.locals.errors = errors
+            return res.render("register")
         }
-        // Hacer el create con el modelo para guardar el registro en la base de datos, siempre usando del trycatch
-        usuarios.create(userStore)
-        .then(function(result) {
-
-            return res.redirect('/users/login')
-            
-        }).catch(function(error) {
-
-            console.log(error);
-            
-        })
-    },
+        else if(req.body.mail==""){
+            errors.message = "Ingrese el mail"
+            res.locals.errors = errors
+            return res.render("register")
+        }
+        else if(req.body.usuario==""){
+            errors.message = "Ingrese el usuario"
+            res.locals.errors = errors
+            return res.render("register")
+        }
+        else if(req.body.password==""){
+            errors.message = "Ingrese la contraseña"
+            res.locals.errors = errors
+            return res.render("register")
+        }
+        else if(req.body.fecha_de_nacimiento=""){
+            errors.message = "Ingrese su fecha de nacimiento"
+            res.locals.errors = errors
+            return res.render("register")
+        }
+        else if(req.body.dni==""){
+            errors.message = "Ingrese su DNI"
+            res.locals.errors = errors
+            return res.render("register")
+        }
+        else if(req.body.password){
+            let mail_repetido= {where:[{mail: {[op.like]:req.body.mail}}]}
+            db.Usuario.findOne(mail_repetido)
+            .then(function(mail_repetido){
+                if (mail_repetido != undefined){
+                    errors.message = "El email ingresado ya esta registrado";
+                    res.locals.errors = errors
+                    return res.render('register')}
+                else{
+                    let userStore = {
+                        usuario: info.usuario,
+                        mail: info.mail,
+                        password: bcrypt.hashSync(info.password, 10),
+                        foto_de_perfil: info.foto_de_perfil,
+                        fecha_de_nacimiento: info.fecha_de_nacimiento,
+                        dni: info.dni,
+                        }
+                        // Hacer el create con el modelo para guardar el registro en la base de datos, siempre usando del trycatch
+                        usuarios.create(userStore)
+                        .then(function(result) {
+                            return res.redirect('/users/login')
+                        }).catch(function(error) {
+                            console.log(error);
+                        })
+                                }
+                            })
+                        }},
 
 
     profile:function(req, res) {
