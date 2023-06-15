@@ -29,6 +29,9 @@
 					<label> Recordarme:</label> 
 					<input type="checkbox" name="remember" value="recordarme">
 				</div>
+				<% if (locals.errorLogin) { %>
+					<p class="errorUsuario"><%= locals.errorLogin.message %></p>
+				<% } %>
 				<div>
 					<input class="enviar" type="submit" value="Enviar">
 				</div>

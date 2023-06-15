@@ -1,7 +1,8 @@
 const data = require ('../database/models') ;// ME TRAE TODOS LOS MODELOS 
 const usuarios= data.Usuario; // TIENE QUE COINCIDIR CON EL ALIAS DEL MODELO.
 const bcrypt = require('bcryptjs');
-const db = require("../database/models")
+const db = require("../database/models");
+const session = require('express-session');
 let op = db.Sequelize.Op
 const usersController = {
 
@@ -18,6 +19,7 @@ const usersController = {
 
         usuarios.findOne(filtrado)
         .then((result) => {
+            let errorLogin = {}
             if (result != null) {
                 let clave_correcta = bcrypt.compareSync(password, result.password)
                 if(clave_correcta){
@@ -27,10 +29,14 @@ const usersController = {
                     }
                     return res.redirect('/');
                 } else{
-                    return res.send('Contraseña incorrecta')
+                    errorLogin.message = "Contraseña incorrecta"
+                    res.locals.errorLogin = errorLogin
+                    return res.render('login')
                 }
                 }else{
-                return res.send('Mail inexistente')
+                    errorLogin.message = "Mail inexistente"
+                    res.locals.errorLogin = errorLogin
+                return res.render('login')
             }
         })
         .catch((err) => {
@@ -73,6 +79,11 @@ const usersController = {
         }
         else if(req.body.dni==""){
             errors.message = "Ingrese su DNI"
+            res.locals.errors = errors
+            return res.render("register")
+        }
+        else if(req.body.password.length<3){
+            errors.message = "La contraseña debe tener al menos tres caracteres"
             res.locals.errors = errors
             return res.render("register")
         }
@@ -143,7 +154,15 @@ const usersController = {
         
             .catch(function (error) {
               
-            })}
+            })},
+        
+            destroy: (req,res) => {
+
+                req.session.usuario=null
+                res.clearCookie('userId')
+
+                return res.redirect("/users/login")
+            }
 
 
     

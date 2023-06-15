@@ -25,6 +25,9 @@ router.get('/edit', usersController.edit );
 //sufijo para busqueda de usuarios
 router.get('/search', usersController.search );
 
+//sufijo para delete
+router.post('/delete', usersController.destroy)
+
 
 
 module.exports = router;
