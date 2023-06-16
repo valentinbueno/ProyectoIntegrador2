@@ -10,6 +10,7 @@
 				<input type="submit" value="ELIMINAR">
 				<input type="text" id="" hidden name="id" value="<%=producto.id %>">
 			</form>
+			<a class="product-detail-edit"href="/users/profile/id/<%=producto.id_creador%>">Propietario: <%=producto.usuarios.usuario %></a>
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -21,10 +22,10 @@
 					<section class="comments">
 						<% for( let i = 0; i < producto.comentarios.length; i++ ) { %>
 							<article>
-									<img src=<%= producto.comentarios[i].usuarios.foto_de_perfil %> alt="">
+									<img src=<%= producto.comentarios[i].usuarios.foto_de_perfil%> alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="profile.html"><%= producto.comentarios[i].usuarios.usuario %>: </a> </strong>
+									<strong> <a href="/users/profile/id/<%=producto.comentarios[i].usuarios.id%>"><%= producto.comentarios[i].usuarios.usuario %>: </a> </strong>
 									<%= producto.comentarios[i].comentario %></p>
 								</div>
 							</article>

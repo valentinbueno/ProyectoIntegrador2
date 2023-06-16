@@ -7,9 +7,6 @@ const controllerProduct = {
 
   detalle: function (req, res) {
     let id = req.params.id;
-
-
-
     //creo relacion
     let rel = {
       include: [{association: "usuarios"},{association: "comentarios", include:[{association:"usuarios"}]}],
@@ -17,8 +14,6 @@ const controllerProduct = {
         ['createdAt', 'DESC']
     ] 
     }
-
-
     //filtro por PK
     producto.findByPk(id, rel)
       .then(function (result) {
@@ -31,55 +26,30 @@ const controllerProduct = {
         console.log(error)
       });
   },
-
-
-
   search: (req, res)=> {
     let busqueda = req.query.search;
-
     producto.findAll({
       
       where:{
         [op.or]:[
         {nombre: { [op.like]: "%" + busqueda + "%" }},
         {descripcion: { [op.like]: "%" + busqueda + "%" }},
-
         ]},
-
         order: [
           ['createdAt', 'DESC']]
-
-         
-
     }).then(function(result){
       return res.render('search-results',{productos: result });
-
     })
-
-    .catch(function (error) {
-      
+    .catch(function (error) { 
     })
-
-    
-
-
-
-  
-
-
   },
   createForm: (req, res) => {
-    
     return res.render('product-add', { userLogueado: true, user: { usuario: "Jose" } })
   },
   save: (req, res) => {
-
     let {imagen,nombre,descripcion}= req.body;
     let id_creador = req.session.usuario.id
-
     db.Producto.create({imagen,nombre,descripcion,id_creador})
-
-
       .then((devolucion) => {
         return res.redirect('/')
       }).catch((error) => {
@@ -130,16 +100,34 @@ const controllerProduct = {
     
   },
   comentar: (req,res)=> {
-    let data= req.params.id;
-    let informacion = req.body;
-  
-    console.log(informacion) // para ver que se cargue el comentario correctamente
-    db.Comentario.create(informacion)
-      .then((devolucion) => {
-        return res.render("product")
-      }).catch((error) => {
-        console.log(error)
-      })  
+    let id= req.params.id;
+    let data=req.body;
+    let errorComentar= {};
+    if(req.session.user != undefined){
+      if (data.comentario != ""){
+        db.Comentario.create({
+          id_creador: req.session.user.id,
+          id_producto:id,
+          comentario: data.comentario,
+        })
+        
+        .then((devolucion) => {
+          return res.redirect('/product/id/'+ id)
+        }).catch((error) => {
+          console.log(error)
+        })
+      }
+      else{
+        errorComentar.message = 'El comentario no debe estar vacio'
+        res.locals.errors= errorComentar
+        return res.redirect('/product/id/'+ id)
+      }
+    }
+    else{
+      errorComentar.message = 'Debes iniciar sesion para poder comentar'
+      res.locals.errors= errorComentar
+      res.render('login')
+    }
   }
 }
 
