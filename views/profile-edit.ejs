@@ -9,21 +9,21 @@
 			</div>
 			<section >
 
-				<form action="/users/register" method="POST">
+				<form action="/users/edit/id/<%=usuario.id%>" method="POST">
 
 					<div>
 						<label> Foto de perfil:</label>
-						<input type="text" id="imagen" name="foto_de_perfil" value="">
+						<input type="text" id="imagen" name="foto_de_perfil" value="<%=usuario.foto_de_perfil%>">
 					</div>
 	
 					<div>
 						<label> Mail:</label> 
-						<input type="email" name="mail" value="">
+						<input type="email" name="mail" value="<%=usuario.mail%>">
 					</div>
 	
 					<div>
 						<label> Usuario:</label>
-						 <input type="text" name="usuario" value="">
+						 <input type="text" name="usuario" value="<%=usuario.usuario%>">
 					</div>
 	
 					<div>
@@ -32,12 +32,12 @@
 	
 					<div>
 						<label> Fecha de nacimiento:</label>
-						 <input type="date" name="fecha_de_nacimiento" value="">
+						 <input type="date" name="fecha_de_nacimiento" value="<%=usuario.fecha_de_nacimiento%>">
 					</div>
 	
 					<div>
 						<label> DNI:</label> 
-						<input type="text" name="dni" value="">
+						<input type="text" name="dni" value="<%=usuario.dni%>">
 					</div>
 					<% if (locals.errors) { %>
 						<p class="errorUsuario"><%= locals.errors.message %></p>

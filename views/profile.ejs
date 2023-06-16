@@ -17,7 +17,7 @@
 					<h1 class="main-title"><%= datosUsuario.usuario %>
 						<% if (locals.usuario!=undefined ) { %>
 							<% if (locals.usuario.id == datosUsuario.id) { %>
-								<a href="/users/edit">
+								<a href="/users/profile/edit/<%datosUsuario.id%>">
 									<i class="fas fa-cog"></i>
 								</a>
 							<% } %>
