@@ -120,7 +120,7 @@ const controllerProduct = {
         })
       }
       else{
-        return res.redirect("/product/id/" + id)
+        return res.redirect("/product/id/"+id)
         // errorComentar.message = 'El comentario no debe estar vacio'
         // res.locals.errors= errorComentar
         // return res.redirect('/product/id/' + id)

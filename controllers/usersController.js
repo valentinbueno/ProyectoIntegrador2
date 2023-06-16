@@ -143,13 +143,12 @@ const usersController = {
 
 
 
-    edit: function(req, res) {
-        res.render('profile-edit',{
-            userLogueado:true,
-            user:data.user,
-        })},
+    edit: (req,res)=>{
 
+    },
+    saveEdit: (req,res)=>{
 
+    },
         search: (req, res)=> {
             let busqueda = req.query.search;
         

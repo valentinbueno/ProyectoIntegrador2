@@ -5,11 +5,15 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto.nombre %></h2> 
 			<!-- falta agregar un condicional con el tema del usuario, si el usuario logeado es el mismo que el del producto en pantalla, deberia aparecer el boton de editar -->
-			<p class="product-detail-edit"><a href="/product/editar/id/<%=producto.id%>">Editar</a></p>
-			<form action="/product/eliminar/id/:id" method="post">
-				<input type="submit" value="ELIMINAR">
-				<input type="text" id="" hidden name="id" value="<%=producto.id %>">
-			</form>
+		<% if (locals.usuario!=undefined ) { %>
+			<% if (locals.usuario.id == producto.id_creador) { %>
+				<p class="product-detail-edit"><a href="/product/editar/id/<%=producto.id%>">Editar</a></p>
+				<form action="/product/eliminar/id/:id" method="post">
+					<input type="submit" value="ELIMINAR">
+					<input type="text" id="" hidden name="id" value="<%=producto.id %>">
+				</form>
+			<% } %>
+		<% } %>	
 			<a class="product-detail-edit"href="/users/profile/id/<%=producto.id_creador%>">Propietario: <%=producto.usuarios.usuario %></a>
 		</div>
 		<div class="product-detail">

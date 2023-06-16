@@ -19,7 +19,8 @@ router.post('/register',usersController.storeRegister);
 router.get('/profile/id/:id',usersController.profile );
 
 // sufijo para profile edit
-router.get('/edit', usersController.edit );
+router.get('/edit', usersController.edit);
+router.post('/edit',usersController.saveEdit)
 
 
 //sufijo para busqueda de usuarios
