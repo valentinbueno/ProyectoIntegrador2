@@ -44,7 +44,7 @@ const controllerProduct = {
     })
   },
   createForm: (req, res) => {
-    return res.render('product-add', { userLogueado: true, user: { usuario: "Jose" } })
+    return res.render('product-add')
   },
   save: (req, res) => {
     let {imagen,nombre,descripcion}= req.body;
