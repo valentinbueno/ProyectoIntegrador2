@@ -32,10 +32,19 @@
 						<% } %>
 
 					</section>
-					<form class="form" action="/product/comentar" method="POST">
-						<input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+					<form class="form" action="/product/id/<%=producto.id %>" method="POST">
+						<%if (locals.usuario == undefined) {%>
+							<input disabled="true" class="form-input" type="text" value="" name="comentario" placeholder="Agrega tu comentario">
+							<button disabled="true" type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+							
+						<%} else {%>
+							<input class="form-input" type="text" value="" name="comentario" placeholder="Agrega tu comentario">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						<%}%>
+						
+					
 					</form>
+					
 					<hr>
 				</div>
 			</div>

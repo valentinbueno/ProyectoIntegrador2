@@ -100,33 +100,34 @@ const controllerProduct = {
     
   },
   comentar: (req,res)=> {
-    let id= req.params.id;
+    
     let data=req.body;
+    let id= req.params.id;
     let errorComentar= {};
-    if(req.session.user != undefined){
+    if(req.session.usuario != undefined){
+      
       if (data.comentario != ""){
         db.Comentario.create({
-          id_creador: req.session.user.id,
+          id_creador: req.session.usuario.id,
           id_producto:id,
           comentario: data.comentario,
         })
         
         .then((devolucion) => {
-          return res.redirect('/product/id/'+ id)
+          return res.redirect('/product/id/'+id)
         }).catch((error) => {
           console.log(error)
         })
       }
       else{
-        errorComentar.message = 'El comentario no debe estar vacio'
-        res.locals.errors= errorComentar
-        return res.redirect('/product/id/'+ id)
+        return res.redirect("/product/id/" + id)
+        // errorComentar.message = 'El comentario no debe estar vacio'
+        // res.locals.errors= errorComentar
+        // return res.redirect('/product/id/' + id)
       }
     }
     else{
-      errorComentar.message = 'Debes iniciar sesion para poder comentar'
-      res.locals.errors= errorComentar
-      res.render('login')
+      res.redirect('/users/login')
     }
   }
 }
