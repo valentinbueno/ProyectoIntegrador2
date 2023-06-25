@@ -30,11 +30,11 @@ const controllerProduct = {
     let busqueda = req.query.search;
     producto.findAll({
       
-      where:{
+      where:[{
         [op.or]:[
         {nombre: { [op.like]: "%" + busqueda + "%" }},
         {descripcion: { [op.like]: "%" + busqueda + "%" }},
-        ]},
+        ]}],
         order: [
           ['createdAt', 'DESC']]
     }).then(function(result){
